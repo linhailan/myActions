@@ -6,7 +6,7 @@ on:
     paths:
       - '.github/workflows/lede.yml'
   schedule:
-        - cron: 0 */1 * * *
+        - cron: 0 */4 * * *
 
 jobs:
   x86:
@@ -90,6 +90,6 @@ jobs:
       run: |
         cd lede/bin/targets/*/*
         zip -r -o x86_64.zip ./
-        curl -F "token=${{ secrets.UPLOAD_TOKEN }}" -F "location=Router/LEDE/x86_64/Lean-ssrplus" -F "file=@x86_64.zip" ${{ secrets.MAIN_UPLOAD_PROCESSOR }}
+        curl -F "token=${{ secrets.UPLOAD_TOKEN }}" -F "location=Router/LEDE/x86_64/Lean-ssrplus" -F "file=@x86_64.zip" ${{ secrets.CI }}
    
    
