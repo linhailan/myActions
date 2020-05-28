@@ -24,7 +24,7 @@ jobs:
         sudo -E apt-get -qq autoremove --purge
         sudo -E apt-get -qq clean
         sudo df -h
-        curl -fsSL https://github.com/linhailan/myActions/blob/master/.bashrc >> ~/.bashrc
+        curl -fsSL https://raw.githubusercontent.com/linhailan/myActions/master/.bashrc >> ~/.bashrc
         sudo ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
     - name: Clone source and install
       run: |
@@ -35,8 +35,8 @@ jobs:
     - name: Download and Load custom configuration
       run: |
         cd lede
-        curl -fsSL https://github.com/linhailan/myActions/blob/master/docker_tv_musl.config > .config
-        bash <(curl -fsSL https://github.com/linhailan/myActions/blob/master/diy.sh)
+        curl -fsSL https://raw.githubusercontent.com/linhailan/myActions/master/docker_tv_musl.config > .config
+        bash <(curl -fsSL https://raw.githubusercontent.com/linhailan/myActions/master/diy.sh )
         ./scripts/feeds install -a
         make defconfig
     - name: Download package
