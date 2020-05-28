@@ -37,6 +37,7 @@ jobs:
         cd lede
         curl -fsSL https://raw.githubusercontent.com/linhailan/myActions/master/docker_tv_musl.config > .config
         bash <(curl -fsSL https://raw.githubusercontent.com/linhailan/myActions/master/diy.sh )
+        
         ./scripts/feeds install -a
         make defconfig
     - name: Download package
