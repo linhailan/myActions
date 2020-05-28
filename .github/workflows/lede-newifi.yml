@@ -6,7 +6,7 @@ on:
     paths:
       - '.github/workflows/lede-newifi.yml'
   schedule:
-        - cron: 0 */4 * * *
+        - cron: 0 2 * * *
 
 jobs:
   pear_newifi_D2:
