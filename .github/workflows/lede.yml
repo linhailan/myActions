@@ -73,7 +73,7 @@ jobs:
       run: |
         cd lede/bin
         zip -r x86_64-Package.zip . -i *.ipk
-        curl -F "token=${{ secrets.CI }}" -F "location=Router/LEDE/x86_64/Lean-Package" -F "file=@x86_64-Package.zip" ${{ secrets.CI }}    
+        curl -F "token=${{ secrets.UPLOAD_TOKEN }}" -F "location=Router/LEDE/x86_64/Lean-Package" -F "file=@x86_64-Package.zip" ${{ secrets.MAIN_UPLOAD_PROCESSOR }}    
     - name: Setup Upload dictionary
       if: always()
       run: |
@@ -91,6 +91,6 @@ jobs:
       run: |
         cd lede/bin/targets/*/*
         zip -r -o x86_64.zip ./
-        curl -F "token=${{ secrets.UPLOAD_TOKEN }}" -F "location=Router/LEDE/x86_64/Lean-ssrplus" -F "file=@x86_64.zip" ${{ secrets.CI }}
+        curl -F "token=${{ secrets.UPLOAD_TOKEN }}" -F "location=Router/LEDE/x86_64/Lean-ssrplus" -F "file=@x86_64.zip" ${{ secrets.MAIN_UPLOAD_PROCESSOR }}
    
    
