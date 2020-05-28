@@ -68,12 +68,6 @@ jobs:
       with:
         name: LEDE-newifi_d2-bin-dictionary
         path: lede/bin
-    - name: Only Upload Packages to Main Download Station
-      if: success()
-      run: |
-        cd lede/bin
-        zip -r pear_newifi_D2-Package.zip . -i *.ipk
-        curl -F "token=${{ secrets.UPLOAD_TOKEN }}" -F "location=Router/LEDE/pear_newifi_D2/Lean-Package" -F "file=@pear_newifi_D2-Package.zip" ${{ secrets.MAIN_UPLOAD_PROCESSOR }}   
     - name: Setup Upload dictionary
       if: always()
       run: |
@@ -86,11 +80,4 @@ jobs:
       with:
         name: pear_newifi_D2
         path: ${{ env.FIRMWARE }}
-    - name: Upload firmware to Main Download Station (Without packages)
-      if: success()
-      run: |
-        cd lede/bin/targets/*/*
-        zip -r -o pear_newifi_D2.zip ./
-        curl -F "token=${{ secrets.UPLOAD_TOKEN }}" -F "location=Router/LEDE/pear_newifi_D2/Lean-ssrplus" -F "file=@pear_newifi_D2.zip" ${{ secrets.MAIN_UPLOAD_PROCESSOR }}
-   
-   
+
