@@ -9,7 +9,7 @@ on:
         - cron: 0 3 * * *
 
 jobs:
-  x86:
+  glibc:
     runs-on: ubuntu-latest
     steps:    
     - name: Prepare environment.
