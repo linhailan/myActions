@@ -5,8 +5,6 @@ on:
       - master
     paths:
       - '.github/workflows/glibc.yml'
-  schedule:
-        - cron: 0 3 * * *
 
 jobs:
   glibc:
