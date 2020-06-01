@@ -5,8 +5,6 @@ on:
       - master
     paths:
       - '.github/workflows/lede.yml'
-  schedule:
-        - cron: 0 3 * * *
 
 jobs:
   x86:
