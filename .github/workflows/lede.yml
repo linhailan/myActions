@@ -1,4 +1,4 @@
-name: Build-Lean-lede
+name: Build-lede-x86
 on:
   push:
     branches:
