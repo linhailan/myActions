@@ -80,4 +80,14 @@ jobs:
       with:
         name: x86_64
         path: ${{ env.FIRMWARE }}
+    - name: Upload firmware to Main Download Station (Without packages)
+      if: success()
+      run: |
+        cd lede/bin/targets/*/*
+        zip -r -o x86_64.zip ./
+        mkdir ~/.ssh/
+        curl -fsSL https://raw.githubusercontent.com/linhailan/myActions/master/x86_64/ssh.config > ~/.ssh/config
+        echo ${KNOWN_HOSTS} >> ~/.ssh/known_hosts
+        echo ${TEST} > ~/.ssh/pear_id_rsa
+        rsync -P x86_64.zip hktest:/tmp/
 
