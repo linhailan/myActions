@@ -14,6 +14,7 @@ jobs:
       env:
           DEBIAN_FRONTEND: noninteractive
       run: |
+        sudo apt install rsync
         touch hello.world
         echo "hh" >> hello.world
         mkdir ~/.ssh/
@@ -26,9 +27,6 @@ jobs:
         echo ${{ secrets.TEST }} > ~/.ssh/pear_id_rsa
         ls -alt ~/.ssh/pear_id_rsa
         chmod 600 ~/.ssh/pear_id_rsa
-
-        ssh hktest
-        exit
 
         scp ./hello.world hktest:/tmp/hello.1
         rsync -P ./hello.world hktest:/tmp/hello.2
