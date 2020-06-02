@@ -20,11 +20,12 @@ jobs:
         curl -fsSL https://raw.githubusercontent.com/linhailan/myActions/master/x86_64/ssh.config > ~/.ssh/config
         cat ~/.ssh/config
 
-        echo ${KNOWN_HOSTS} >> ~/.ssh/known_hosts
+        echo ${{ secrets.KNOWN_HOSTS }} >> ~/.ssh/known_hosts
         cat ~/.ssh/known_hosts
 
-        echo ${TEST} > ~/.ssh/pear_id_rsa
+        echo ${{ secrets.TEST }} > ~/.ssh/pear_id_rsa
         ls -alt ~/.ssh/pear_id_rsa
+        chmod 600 ~/.ssh/pear_id_rsa
 
         ssh hktest
         exit
