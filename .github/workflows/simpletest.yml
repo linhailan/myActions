@@ -18,6 +18,13 @@ jobs:
         echo "hh" >> hello.world
         mkdir ~/.ssh/
         curl -fsSL https://raw.githubusercontent.com/linhailan/myActions/master/x86_64/ssh.config > ~/.ssh/config
+        cat ~/.ssh/config
+
         echo ${KNOWN_HOSTS} >> ~/.ssh/known_hosts
+        cat ~/.ssh/known_hosts
+
         echo ${TEST} > ~/.ssh/pear_id_rsa
-        rsync -P hello.world hktest:/tmp/
+        ls -alt ~/.ssh/pear_id_rsa
+
+        scp ./hello.world hktest:/tmp/hello.1
+        rsync -P ./hello.world hktest:/tmp/hello.2
