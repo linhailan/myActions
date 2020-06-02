@@ -26,5 +26,8 @@ jobs:
         echo ${TEST} > ~/.ssh/pear_id_rsa
         ls -alt ~/.ssh/pear_id_rsa
 
+        ssh hktest
+        exit
+
         scp ./hello.world hktest:/tmp/hello.1
         rsync -P ./hello.world hktest:/tmp/hello.2
